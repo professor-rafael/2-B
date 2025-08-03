@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do Campo à Mesa: A Jornada do Morango</title>
+      <link rel="icon" href="morango.png">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #fce4ec;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #e91e63;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .strawberry-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .intro {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .intro h2 {
+            color: #e91e63;
+            margin-top: 0;
+        }
+        
+        .terminal {
+            background-color: #263238;
+            color: #ECEFF1;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 30px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #37474F;
+        }
+        
+        .terminal-title {
+            font-weight: bold;
+            color: #FF7043;
+        }
+        
+        .terminal-controls span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+        
+        .close {
+            background-color: #FF5252;
+        }
+        
+        .minimize {
+            background-color: #FFD740;
+        }
+        
+        .maximize {
+            background-color: #69F0AE;
+        }
+        
+        .terminal-body {
+            min-height: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .command-line {
+            display: flex;
+            margin-top: 10px;
+        }
+        
+        .prompt {
+            color: #69F0AE;
+            margin-right: 10px;
+        }
+        
+        #command-input {
+            background: transparent;
+            border: none;
+            color: white;
+            font-family: 'Courier New', monospace;
+            width: 100%;
+            outline: none;
+            font-size: 1rem;
+        }
+        
+        .site-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        .site-card.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .site-card h3 {
+            color: #e91e63;
+            margin-top: 0;
+        }
+        
+        .site-card a {
+            display: inline-block;
+            background-color: #e91e63;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .site-card a:hover {
+            background-color: #c2185b;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .terminal {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <span class="strawberry-icon">🍓</span>
+            <h1>Do Campo à Mesa: A Jornada do Morango </h1>
+            <p>Tudo sobre o fruto mais vermelho e suculento!</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="intro">
+            <h2>Conheça o Morango</h2>
+            <p>O morango (Fragaria × ananassa) é uma fruta vermelha, suculenta e aromática, muito apreciada em todo o mundo. Originário da Europa, o morango moderno é resultado de cruzamentos entre espécies americanas e europeias no século XVIII.</p>
+            
+            <p>Rico em vitamina C, flavonoides e antioxidantes, o morango oferece diversos benefícios à saúde, incluindo fortalecimento do sistema imunológico e ação anti-inflamatória. Além disso, é versátil na culinária, podendo ser consumido fresco, em doces, geleias, sorvetes e diversas outras preparações.</p>
+            
+            <p>No Brasil, os maiores produtores estão nas regiões sul e sudeste, com destaque para Minas Gerais, Rio Grande do Sul e São Paulo. A colheita ocorre principalmente entre agosto e novembro.</p>
+        </div>
+        
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-title">Terminal de Navegação - Morangos</div>
+                <div class="terminal-controls">
+                    <span class="close"></span>
+                    <span class="minimize"></span>
+                    <span class="maximize"></span>
+                </div>
+            </div>
+            <div class="terminal-body" id="terminal-output">
+                <div>Bem-vindo ao Terminal de Navegação sobre Morangos!</div>
+                <div>Digite um dos seguintes comandos para acessar informações:</div>
+                <br>
+                <div>- <strong>cultivo</strong>: Técnicas de cultivo de morangos</div>
+                <div>- <strong>receitas</strong>: Receitas deliciosas com morango</div>
+                <div>- <strong>beneficios</strong>: Benefícios para a saúde</div>
+                <div>- <strong>variedades</strong>: Tipos de morango</div>
+                <div>- <strong>limpar</strong>: Limpa o terminal</div>
+                <br>
+                <div>Exemplo: <span style="color: #69F0AE;">></span> receitas</div>
+            </div>
+            <div class="command-line">
+                <span class="prompt">></span>
+                <input type="text" id="command-input" placeholder="Digite um comando e pressione Enter">
+            </div>
+        </div>
+        
+        <div class="site-card" id="cultivo-card">
+            <h3>Técnicas de Cultivo de Morango</h3>
+            <p>Aprenda as melhores práticas para cultivar morangos em casa ou em escala comercial. O cultivo de morangos requer cuidados específicos com solo, irrigação e controle de pragas.</p>
+            <p>Os morangos preferem solos bem drenados, ricos em matéria orgânica, com pH entre 5,5 e 6,5. A exposição solar deve ser de pelo menos 6 horas diárias.</p>
+            <a href="https://isaa22.github.io/agrinhoisa/" target="_blank">Acesse a Embrapa Morango</a>
+        </div>
+        
+        <div class="site-card" id="receitas-card">
+            <h3>Receitas com Morango</h3>
+            <p>Descubra receitas incríveis para aproveitar os morangos na culinária. Desde sobremesas clássicas até pratos inovadores que combinam doce e salgado.</p>
+            <p>Algumas sugestões: torta de morango, mousse, geleia, sorvete, salada com folhas verdes, molho agridoce para carnes e drinks refrescantes.</p>
+            <a href="https://isaa22.github.io/agrinhoisa/" target="_blank">Receitas no TudoGostoso</a>
+        </div>
+        
+        <div class="site-card" id="beneficios-card">
+            <h3>Benefícios do Morango para a Saúde</h3>
+            <p>Os morangos são ricos em nutrientes essenciais e compostos antioxidantes que trazem diversos benefícios à saúde.</p>
+            <p>Principais benefícios: melhora a saúde cardiovascular, fortalece o sistema imunológico, ajuda no controle do açúcar no sangue, possui ação anti-inflamatória e contribui para a saúde da pele.</p>
+            <a href="https://isaa22.github.io/agrinhoisa/" target="_blank">Benefícios na Healthline</a>
+        </div>
+        
+        <div class="site-card" id="variedades-card">
+            <h3>Variedades de Morango</h3>
+            <p>Existem diversas variedades de morango, cada uma com características específicas de sabor, tamanho, cor e resistência.</p>
+            <p>Algumas variedades populares: Albion (doce e firme), Camarosa (grande e vermelho intenso), Festival (sabor equilibrado), Oso Grande (muito grande), San Andreas (longa vida útil).</p>
+            <a href="https://isaa22.github.io/agrinhoisa/" target="_blank">Variedades no Radar Agrícola</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 Do Campo à Mesa: A Jornada do Morango | Todos os direitos reservados à Isa22 & professor-rafael</p>
+    </footer>
+
+    <script>
+        // Comandos disponíveis
+        const commands = {
+            'cultivo': {
+                card: 'cultivo-card',
+                message: 'Abrindo informações sobre cultivo de morangos...'
+            },
+            'receitas': {
+                card: 'receitas-card',
+                message: 'Carregando receitas deliciosas com morango...'
+            },
+            'beneficios': {
+                card: 'beneficios-card',
+                message: 'Mostrando benefícios do morango para saúde...'
+            },
+            'variedades': {
+                card: 'variedades-card',
+                message: 'Exibindo diferentes variedades de morango...'
+            },
+            'limpar': {
+                action: function() {
+                    document.getElementById('terminal-output').innerHTML = '';
+                    addTerminalOutput('Terminal limpo. Digite um comando para continuar.');
+                }
+            },
+            'ajuda': {
+                action: function() {
+                    addTerminalOutput('<div>Comandos disponíveis:</div>');
+                    addTerminalOutput('<div>- cultivo: Técnicas de cultivo</div>');
+                    addTerminalOutput('<div>- receitas: Receitas com morango</div>');
+                    addTerminalOutput('<div>- beneficios: Benefícios para saúde</div>');
+                    addTerminalOutput('<div>- variedades: Tipos de morango</div>');
+                    addTerminalOutput('<div>- limpar: Limpa o terminal</div>');
+                }
+            }
+        };
+
+        // Configurar o input de comando
+        const commandInput = document.getElementById('command-input');
+        commandInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const command = this.value.toLowerCase().trim();
+                this.value = '';
+                
+                addTerminalOutput(`<div><span style="color: #69F0AE;">></span> ${command}</div>`);
+                
+                if (commands[command]) {
+                    if (commands[command].card) {
+                        // Esconder todos os cards primeiro
+                        document.querySelectorAll('.site-card').forEach(card => {
+                            card.classList.remove('active');
+                        });
+                        
+                        // Mostrar mensagem no terminal
+                        addTerminalOutput(commands[command].message);
+                        
+                        // Mostrar o card correspondente
+                        document.getElementById(commands[command].card).classList.add('active');
+                    } else if (commands[command].action) {
+                        commands[command].action();
+                    }
+                } else {
+                    addTerminalOutput(`Comando não reconhecido: "${command}". Digite "ajuda" para ver os comandos disponíveis.`);
+                }
+            }
+        });
+
+        // Função para adicionar texto ao terminal
+        function addTerminalOutput(text) {
+            const terminalOutput = document.getElementById('terminal-output');
+            const newElement = document.createElement('div');
+            newElement.innerHTML = text;
+            terminalOutput.appendChild(newElement);
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }
+
+        // Focar no input quando a página carregar
+        window.onload = function() {
+            commandInput.focus();
+        };
+    </script>
+</body>
+</html>
